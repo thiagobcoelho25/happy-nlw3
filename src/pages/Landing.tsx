@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import '../styles/pages/landing.css';
 
-import logoImg from '../images/logo.svg';
+import logoImg from '../images/Logo.svg';
 
 function Landing(){
     return(
@@ -22,7 +22,7 @@ function Landing(){
                     <span>Espirito Santo</span>
                 </div>
 
-                <Link to="" className='enter-app'>
+                <Link to="/app" className='enter-app'>
                     <FiArrowRight size={26} color='rgba(0,0,0,0.6)'/>
                 </Link>
             </div>
