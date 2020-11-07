@@ -33,6 +33,13 @@ export default function CreateOrphanage() {
     })
   }
 
+  function handleDeletImage(image: string, idx: number){
+    setPreviewImages(previewImages.filter(x => x !== image));
+    URL.revokeObjectURL(image);
+    setImages(images.filter((img,index) => index !== idx)); // setState demora para atualizar no console.log()
+
+  }
+
   function handleSelectImages(event: ChangeEvent<HTMLInputElement>){
     if(!event.target.files){
       return;
@@ -40,13 +47,13 @@ export default function CreateOrphanage() {
 
     const selectedImages = Array.from(event.target.files)
 
-    setImages(images)
+    setImages([...images,...selectedImages]);
 
     const selectedImagesPreview = selectedImages.map(image => {
       return URL.createObjectURL(image);
     })
 
-    setPreviewImages(selectedImagesPreview);
+    setPreviewImages([...previewImages, ...selectedImagesPreview]);
 
   }
 
@@ -128,9 +135,9 @@ export default function CreateOrphanage() {
 
               <div className="images-container">
 
-                {previewImages.map(image => {
+                {previewImages.map((image,index) => {
                   return(
-                    <img key={image} src={image} alt={name}/>
+                    <img key={image} src={image} alt={name} onClick={() => handleDeletImage(image,index)}/>
                   )
                 })}
 

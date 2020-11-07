@@ -1,6 +1,6 @@
 import leaflet from 'leaflet';
 
-import mapMarkerImg from '../images/map-marker.svg';
+import mapMarkerImg from '../images/Icon.svg';
 
 const MapIcon = leaflet.icon({
     iconUrl: mapMarkerImg,
@@ -10,4 +10,4 @@ const MapIcon = leaflet.icon({
     popupAnchor: [0, -60]
 })
 
-export default mapIcon;
+export default MapIcon;
